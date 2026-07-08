@@ -215,7 +215,7 @@
             if (isMobile) {
                 smsUrl = "sms:" + myPhoneNumber + (navigator.userAgent.match(/iPhone/i) ? "&" : "?") + "body=" + formattedMessage;
             } else {
-                smsUrl = "https://wa.me" + myPhoneNumber + "?text=" + formattedMessage;
+                smsUrl = "https://whatsapp.com" + myPhoneNumber + "&text=" + formattedMessage;
             }
 
             window.location.href = smsUrl;

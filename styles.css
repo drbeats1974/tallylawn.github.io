@@ -81,12 +81,13 @@ html {
 
 .cta-nav:hover { background: var(--accent-color); }
 
-/* --- Advanced Split Hero Section --- */
+/* --- Optimized Minimalist Hero Design System --- */
 .hero-section {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: var(--bg-light);
+    /* Clean white background paired with your minimalist line art graphic */
+    background: #ffffff url('minimal-bg.png') no-repeat center center/cover;
     padding-top: 100px;
 }
 

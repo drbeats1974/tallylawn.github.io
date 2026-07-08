@@ -1,0 +1,460 @@
+/* --- Southern Georgia/Tallahassee Design System Variables --- */
+:root {
+    --primary-color: #2d4a22;   /* Deep Southern Live Oak Moss Green */
+    --accent-color: #c86b45;    /* Warm Georgia Clay / Historic Savannah Brick */
+    --text-dark: #1c2519;       /* Deep Charcoal with a hint of forest green */
+    --text-light: #5a6555;      /* Soft sage-tinted paragraph gray */
+    --bg-light: #faf8f5;        /* Warm cream / Spanish Moss cream background */
+    --font-sans: 'Inter', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+    --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+    color: var(--text-dark);
+    background-color: #ffffff;
+}
+
+/* --- Sticky Modern Navigation --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: #ffffff;
+    padding: 15px 0;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.logo span { color: var(--accent-color); }
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+}
+
+.nav-menu li a {
+    text-decoration: none;
+    color: var(--text-dark);
+    margin: 0 20px;
+    font-weight: 500;
+    transition: var(--transition-smooth);
+}
+
+.nav-menu li a:hover { color: var(--accent-color); }
+
+.cta-nav {
+    text-decoration: none;
+    background: var(--primary-color);
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+}
+
+.cta-nav:hover { background: var(--accent-color); }
+
+/* --- Advanced Split Hero Section --- */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: var(--bg-light);
+    padding-top: 100px;
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.badge {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--accent-color);
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.hero-text h1 {
+    font-family: var(--font-serif);
+    font-size: 3.5rem;
+    line-height: 1.15;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-light);
+    margin-bottom: 35px;
+}
+
+.hero-actions .btn {
+    text-decoration: none;
+    padding: 15px 35px;
+    border-radius: 4px;
+    font-weight: 600;
+    display: inline-block;
+    transition: var(--transition-smooth);
+}
+
+.btn-primary { background: var(--primary-color); color: white; }
+.btn-primary:hover { background: var(--accent-color); transform: translateY(-2px); }
+
+.hero-image-wrapper {
+    height: 550px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+/* --- About Me / Tallahassee Section Styles --- */
+.about-me-section {
+    padding: 100px 30px;
+    background-color: #ffffff;
+}
+
+.about-me-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 6fr 5fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.badge-accent {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--accent-color);
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.about-me-text h2 {
+    font-family: var(--font-serif);
+    font-size: 2.8rem;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    line-height: 1.2;
+}
+
+.about-me-text p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-light);
+    margin-bottom: 20px;
+}
+
+.tally-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.tally-highlights span {
+    background: var(--bg-light);
+    color: var(--primary-color);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid #e2e8f0;
+}
+
+.about-me-visual {
+    height: 450px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
+.tally-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+/* --- Clean Grid Services Layout --- */
+.services-section {
+    padding: 100px 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.section-header h2 {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid #eef0f2;
+    transition: var(--transition-smooth);
+}
+
+.service-card .icon {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.service-card p {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* --- Production Pricing Layout Styles --- */
+.price-container {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #eef0f2;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.regular-price {
+    font-size: 1.1rem;
+    color: #a0aec0;
+    text-decoration: line-through;
+    font-weight: 500;
+}
+
+.promo-price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.offer-badge {
+    background: var(--accent-color);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 4px;
+    letter-spacing: 1px;
+}
+
+/* --- Master Basket Button Engineering --- */
+.btn-basket-toggle {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    border: 2px solid var(--primary-color);
+    background: transparent;
+    color: var(--primary-color);
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: var(--transition-smooth);
+}
+
+.btn-basket-toggle:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-basket-toggle.active-in-cart {
+    background: #e53e3e;
+    border-color: #e53e3e;
+    color: white;
+}
+
+.service-card.selected-card-border {
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 25px rgba(200, 107, 69, 0.15);
+}
+
+/* --- Responsive Split Checkout Component --- */
+.checkout-section {
+    background: var(--bg-light);
+    padding: 100px 30px;
+}
+
+.checkout-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 50px;
+}
+
+.basket-summary-box, .lead-form-box {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    border: 1px solid #eef0f2;
+}
+
+.basket-summary-box h3, .lead-form-box h3 {
+    margin-bottom: 25px;
+    font-family: var(--font-serif);
+    color: var(--primary-color);
+    font-size: 1.6rem;
+}
+
+#basket-empty-msg {
+    color: var(--text-light);
+    font-style: italic;
+}
+
+.basket-list {
+    list-style: none;
+    margin-bottom: 25px;
+}
+
+.basket-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px dashed #e2e8f0;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 1.3rem;
+    padding-top: 20px;
+    color: var(--primary-color);
+}
+
+/* --- Form Fields & Inputs Architecture --- */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    outline: none;
+    transition: var(--transition-smooth);
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(27, 67, 50, 0.1);
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.btn-submit-order {
+    width: 100%;
+    padding: 15px;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.btn-submit-order:hover:not(:disabled) {
+    background: var(--primary-color);
+    transform: translateY(-1px);
+}
+
+.btn-submit-order:disabled {
+    background: #cbd5e1;
+    cursor: not-allowed;
+}
+
+footer {
+    background: #1b4332;
+    color: #ffffff;
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 0.9rem;
+}
+
+@media(max-width: 992px) {
+    .hero-container, .about-me-container, .checkout-container { grid-template-columns: 1fr; text-align: center;}
+    .nav-menu { display: none; }
+}

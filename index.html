@@ -45,7 +45,7 @@
                     <a href="#booking-section" class="btn btn-primary">Book 50% Off Offers</a>
                 </div>
             </div>
-            <!-- Vintage Plaque Design Layout -->
+            <!-- Vintage Plaque Design -->
             <div class="hero-image-wrapper" style="background-color: #2d4a22; border: 6px double #c86b45; display: flex; align-items: center; justify-content: center; padding: 30px; text-align: center; border-radius: 12px;">
                 <div style="color: #faf8f5; font-family: 'Playfair Display', serif; border: 1px solid rgba(250,248,245,0.3); padding: 40px 20px; width: 100%;">
                     <h3 style="font-size: 2.2rem; font-weight: 700; letter-spacing: 1px; margin-bottom: 10px; color: #faf8f5;">EST. 2026</h3>
@@ -80,11 +80,11 @@
             </div>
         </div>
     </section>
-    <!-- Checkbox Booking Section Linking to SMS -->
+    <!-- Interactive Checkbox Booking Section Linked to Email -->
     <section id="booking-section" class="checkout-section">
         <div class="section-header" style="text-align: center; margin-bottom: 50px;">
             <h2>Select Services & Book Instantly</h2>
-            <p>Check the boxes for your 50% Off Intro Offers, fill in your property details, and tap the confirmation button to text your request directly to Old Pappy!</p>
+            <p>Check the boxes for your 50% Off Intro Offers, fill in your info, and click the confirmation button to automatically format an email request directly to Old Pappy!</p>
         </div>
 
         <div class="full-width-form">
@@ -108,8 +108,7 @@
                         <h4>🌱 Soil & Fertilizer Treatment</h4>
                         <p>Custom seasonal organic aeration, overseeding, and deep nutrient root injections.</p>
                         <div class="checkbox-price"><span>$160</span>$80</div>
-                    </div>
-                </label>
+                    </label>
 
                 <label class="checkbox-card">
                     <input type="checkbox" class="lawn-service-checkbox" value="Mulch Bedding ($120)">
@@ -156,6 +155,11 @@
                 <label for="full-name">Full Name</label>
                 <input type="text" id="full-name" required placeholder="John Doe">
             </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" required placeholder="(850) 555-0199">
+            </div>
             
             <div class="form-group">
                 <label for="address">Tallahassee Property Address</label>
@@ -167,7 +171,7 @@
                 <textarea id="notes" placeholder="Dog in back yard, please knock first..."></textarea>
             </div>
 
-            <button type="button" class="btn-submit-order" onclick="sendLawnText()" style="margin-top: 10px; width: 100%;">Text My 50% Off Booking Offer</button>
+            <button type="button" class="btn-submit-order" onclick="sendLawnEmail()" style="margin-top: 10px; width: 100%;">Email My 50% Off Booking Offer</button>
         </div>
     </section>
 
@@ -175,20 +179,23 @@
         <p>&copy; 2026 Old Pappy's Lawn Service. Locally owned and operated in Tallahassee, FL.</p>
     </footer>
 
+    <!-- Bulletproof Email Structuring Engine -->
     <script>
-        function sendLawnText() {
-            // Your exact Tallahassee cell number configured cleanly below
-            const myPhoneNumber = "8502969193"; 
+        function sendLawnEmail() {
+            const myEmail = "popedddd@gmail.com"; 
 
             const fullName = document.getElementById('full-name').value;
+            const phone = document.getElementById('phone').value;
             const address = document.getElementById('address').value;
             const notes = document.getElementById('notes').value;
 
-            if(!fullName || !address) {
-                alert("Please fill out your Name and Property Address before booking!");
+            // Simple Form Validation Checks
+            if(!fullName || !phone || !address) {
+                alert("Please fill out your Name, Phone, and Property Address before booking!");
                 return;
             }
 
+            // Gather values of checked services
             let selectedServices = [];
             const checkboxes = document.querySelectorAll('.lawn-service-checkbox:checked');
             checkboxes.forEach((box) => {
@@ -200,25 +207,23 @@
                 return;
             }
 
-            let textMessage = "Hello Old Pappy! I'd like to book the following 50% off intro lawn offers:\n\n";
-            textMessage += "Services: " + selectedServices.join(", ") + "\n\n";
-            textMessage += "Name: " + fullName + "\n";
-            textMessage += "Address: " + address + "\n";
+            // Build out the email message formatting string
+            let emailBody = "Hello Old Pappy!\n\nI would like to book the following 50% off introductory lawn offers:\n";
+            emailBody += "Requested Services: " + selectedServices.join(", ") + "\n\n";
+            emailBody += "--- CUSTOMER DETAILS ---\n";
+            emailBody += "Name: " + fullName + "\n";
+            emailBody += "Phone Number: " + phone + "\n";
+            emailBody += "Property Address: " + address + "\n";
             if(notes) {
-                textMessage += "Notes: " + notes;
+                emailBody += "Lawn Notes: " + notes;
             }
 
-            const formattedMessage = encodeURIComponent(textMessage);
-            const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+            // Generate an official web mail link query parameters
+            const subject = encodeURIComponent("Old Pappy's Lawn Care Booking Request");
+            const body = encodeURIComponent(emailBody);
             
-            let smsUrl = "";
-            if (isMobile) {
-                smsUrl = "sms:" + myPhoneNumber + (navigator.userAgent.match(/iPhone/i) ? "&" : "?") + "body=" + formattedMessage;
-            } else {
-                smsUrl = "https://whatsapp.com" + myPhoneNumber + "&text=" + formattedMessage;
-            }
-
-            window.location.href = smsUrl;
+            // Re-route browser window cleanly to the user's native email application
+            window.location.href = "mailto:" + myEmail + "?subject=" + subject + "&body=" + body;
         }
     </script>
 </body>

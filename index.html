@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenScape | Tallahassee Premium Lawn Care</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Green<span>Scape</span></a>
+            <ul class="nav-menu">
+                <li><a href="#about-me">About Me</a></li>
+                <li><a href="#services">Intro Offers</a></li>
+                <li><a href="#checkout-section">My Basket (<span id="nav-cart-count">0</span>)</a></li>
+            </ul>
+            <a href="#checkout-section" class="cta-nav">Book My Offers</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="hero-container">
+            <div class="hero-text">
+                <span class="badge">Classic Southern Hospitality</span>
+                <h1>Preserving the charm of Tallahassee lawns.</h1>
+                <p>Premium, meticulous lawn care tailored for North Florida. From historic estate maintenance to specialized Bermuda and Centipede sod care that beats the summer heat.</p>
+                <div class="hero-actions">
+                    <a href="#services" class="btn btn-primary">View 50% Off Offers</a>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                <div class="hero-image" style="background-image: url('https://unsplash.com');"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Me Section -->
+    <section id="about-me" class="about-me-section">
+        <div class="about-me-container">
+            <div class="about-me-text">
+                <span class="badge-accent">Meet Your Local Expert</span>
+                <h2>Rooted Right Here in Tallahassee</h2>
+                <p>Hey there! I’m a lifelong Tallahassee resident with a deep passion for gardening, landscaping, and keeping our community beautiful. Growing up surrounded by North Florida's rolling hills, historic canopy roads, and gorgeous live oaks, I learned exactly what it takes to make local lawns thrive.</p>
+                <p>When I'm not out behind a mower, you can find me cheering hard for our local teams. Whether it's a Saturday game day supporting the <strong>FSU Seminoles</strong> or celebrating the proud traditions of the <strong>FAMU Rattlers</strong>, my love for Tally runs deep.</p>
+                <div class="tally-highlights">
+                    <span>🍢 Garnet & Gold Pride</span>
+                    <span>🐍 Strike Again!</span>
+                    <span>🌳 Canopy Road Approved</span>
+                </div>
+            </div>
+            <div class="about-me-visual">
+                <div class="tally-image" style="background-image: url('https://unsplash.com');"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid with Basket Controls -->
+    <section id="services" class="services-section">
+        <div class="section-header">
+            <h2>Select Your Introductory Offers</h2>
+            <p>First-time customers up to 0.5 acres. Add services to your basket to secure your 50% hometown discount!</p>
+        </div>
+        <div class="services-grid">
+            <!-- Service Card 1 -->
+            <div class="service-card" data-id="mowing" data-name="Master Mowing & Edging" data-price="45">
+                <div class="icon">✂️</div>
+                <h3>Master Mowing & Edging</h3>
+                <p>Precision blade leveling, string edging around all perimeters, and clean driveway power-blowing.</p>
+                <div class="price-container">
+                    <span class="regular-price">$90</span>
+                    <span class="promo-price">$45</span>
+                    <span class="offer-badge">Intro Offer</span>
+                </div>
+                <button class="btn-basket-toggle" onclick="toggleCartItem('mowing')">Add to Basket</button>
+            </div>
+            
+            <!-- Service Card 2 -->
+            <div class="service-card" data-id="soil" data-name="Soil & Fertilizer Treatment" data-price="80">
+                <div class="icon">🌱</div>
+                <h3>Soil & Fertilizer Treatment</h3>
+                <p>Custom seasonal organic aeration, overseeding, and deep nutrient root injections for vivid color.</p>
+                <div class="price-container">
+                    <span class="regular-price">$160</span>
+                    <span class="promo-price">$80</span>
+                    <span class="offer-badge">Intro Offer</span>
+                </div>
+                <button class="btn-basket-toggle" onclick="toggleCartItem('soil')">Add to Basket</button>
+            </div>
+            
+            <!-- Service Card 3 -->
+            <div class="service-card" data-id="mulch" data-name="Premium Mulch Bedding" data-price="120">
+                <div class="icon">🪵</div>
+                <h3>Premium Mulch Bedding</h3>
+                <p>Installation of triple-shredded dark mulch with deep mechanical spade-cut edge definition.</p>
+                <div class="price-container">
+                    <span class="regular-price">$240</span>
+                    <span class="promo-price">$120</span>
+                    <span class="offer-badge">Intro Offer</span>
+                </div>
+                <button class="btn-basket-toggle" onclick="toggleCartItem('mulch')">Add to Basket</button>
+            </div>
+        </div>
+    </section>
+  
+    <!-- Split Screen Checkout System -->
+    <section id="checkout-section" class="checkout-section">
+        <div class="checkout-container">
+            
+            <!-- Basket Summary View -->
+            <div class="basket-summary-box">
+                <h3>Your Booked Services</h3>
+                <div id="basket-empty-msg">Your basket is empty. Select a service above to get started!</div>
+                <ul id="basket-items-list" class="basket-list"></ul>
+                
+                <div class="total-row">
+                    <span>Introductory Total:</span>
+                    <span id="basket-total-price">$0</span>
+                </div>
+            </div>
+
+            <!-- Customer Information Form -->
+            <div class="lead-form-box">
+                <h3>Contact & Property Information</h3>
+                <form action="https://formspree.io" method="POST" id="checkout-form">
+                    <input type="hidden" name="Selected Services" id="hidden-services-input">
+                    <input type="hidden" name="Total Price" id="hidden-total-input">
+
+                    <div class="form-group">
+                        <label for="full-name">Full Name</label>
+                        <input type="text" id="full-name" name="Name" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="Phone" required placeholder="(850) 555-0199">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Tallahassee Property Address</label>
+                        <input type="text" id="address" name="Property Address" required placeholder="123 Canopy Road">
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">Special Gate Codes or Lawn Instructions</label>
+                        <textarea id="notes" name="Customer Notes" placeholder="Dog in back yard..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit-order" id="submit-btn" disabled>Confirm My 50% Off Booking</button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 GreenScape Architecture. Locally owned and operated in Tallahassee, FL.</p>
+    </footer>
+
+    <!-- Shopping Basket Script -->
+    <script>
+        const cartState = {};
+
+        function toggleCartItem(id) {
+            const card = document.querySelector(`.service-card[data-id="${id}"]`);
+            const name = card.getAttribute('data-name');
+            const price = parseInt(card.getAttribute('data-price'));
+            const button = card.querySelector('.btn-basket-toggle');
+
+            if (cartState[id]) {
+                delete cartState[id];
+                button.textContent = "Add to Basket";
+                button.classList.remove('active-in-cart');
+                card.classList.remove('selected-card-border');
+            } else {
+                cartState[id] = { name, price };
+                button.textContent = "Remove From Basket";
+                button.classList.add('active-in-cart');
+                card.classList.add('selected-card-border');
+            }
+            renderCartUpdates();
+        }
+
+        function renderCartUpdates() {
+            const listContainer = document.getElementById('basket-items-list');
+            const emptyMsg = document.getElementById('basket-empty-msg');
+            const totalDisplay = document.getElementById('basket-total-price');
+            const navCount = document.getElementById('nav-cart-count');
+            const submitBtn = document.getElementById('submit-btn');
+            const hiddenServices = document.getElementById('hidden-services-input');
+            const hiddenTotal = document.getElementById('hidden-total-input');
+
+            listContainer.innerHTML = '';
+            let currentTotal = 0;
+            let totalItems = 0;
+            let itemNamesArray = [];
+
+            for (const key in cartState) {
+                totalItems++;
+                currentTotal += cartState[key].price;
+                itemNamesArray.push(cartState[key].name);
+
+                const li = document.createElement('li');
+                li.innerHTML = '<span>' + cartState[key].name + '</span><strong>$' + cartState[key].price + '</strong>';
+                listContainer.appendChild(li);
+            }
+
+            navCount.textContent = totalItems;
+            totalDisplay.textContent = '$' + currentTotal;
+            hiddenServices.value = itemNamesArray.join(', ');
+            hiddenTotal.value = '$' + currentTotal;
+
+            if (totalItems > 0) {
+                emptyMsg.style.display = 'none';
+                submitBtn.removeAttribute('disabled');
+            } else {
+                emptyMsg.style.display = 'block';
+                submitBtn.setAttribute('disabled', 'true');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GreenScape | Old Pappy's Tallahassee Lawn Care</title>
+    <title>Old Pappy's Lawn Service | Tallahassee Premium Lawn Care</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">Green<span>Scape</span></a>
+            <a href="#" class="logo">Old Pappy's<span> Lawn Service</span></a>
             <ul class="nav-menu">
                 <li><a href="#about-me">About Me</a></li>
                 <li><a href="#services">Intro Offers</a></li>
@@ -35,7 +35,7 @@
                     <a href="#services" class="btn btn-primary">View 50% Off Offers</a>
                 </div>
             </div>
-            <!-- Bulletproof Vintage Plaque Design -->
+            <!-- Vintage Plaque Design -->
             <div class="hero-image-wrapper" style="background-color: #2d4a22; border: 6px double #c86b45; display: flex; align-items: center; justify-content: center; padding: 30px; text-align: center; border-radius: 12px;">
                 <div style="color: #faf8f5; font-family: 'Playfair Display', serif; border: 1px solid rgba(250,248,245,0.3); padding: 40px 20px; width: 100%;">
                     <h3 style="font-size: 2.2rem; font-weight: 700; letter-spacing: 1px; margin-bottom: 10px; color: #faf8f5;">EST. 2026</h3>
@@ -116,10 +116,48 @@
                 </div>
                 <button class="btn-basket-toggle" onclick="toggleCartItem('mulch')">Add to Basket</button>
             </div>
+
+            <!-- Service Card 4 -->
+            <div class="service-card" data-id="trimming" data-name="Tree & Shrub Trimming" data-price="75">
+                <div class="icon">🌳</div>
+                <h3>Tree & Shrub Trimming</h3>
+                <p>Meticulous shaping of hedges, clearing low-hanging limbs, and removing unsightly growth.</p>
+                <div class="price-container">
+                    <span class="regular-price">$150</span>
+                    <span class="promo-price">$75</span>
+                    <span class="offer-badge">Intro Offer</span>
+                </div>
+                <button class="btn-basket-toggle" onclick="toggleCartItem('trimming')">Add to Basket</button>
+            </div>
+
+            <!-- Service Card 5 -->
+            <div class="service-card" data-id="pinestraw" data-name="Premium Pine Straw Dressing" data-price="95">
+                <div class="icon">🍂</div>
+                <h3>Premium Pine Straw Dressing</h3>
+                <p>Fresh installation of premium North Florida long-needle pine straw with tucked, clean borders.</p>
+                <div class="price-container">
+                    <span class="regular-price">$190</span>
+                    <span class="promo-price">$95</span>
+                    <span class="offer-badge">Intro Offer</span>
+                </div>
+                <button class="btn-basket-toggle" onclick="toggleCartItem('pinestraw')">Add to Basket</button>
+            </div>
+
+            <!-- Service Card 6 -->
+            <div class="service-card" data-id="gutters" data-name="Gutter Cleanout & Flush" data-price="60">
+                <div class="icon">🏠</div>
+                <h3>Gutter Cleanout & Flush</h3>
+                <p>Removal of fallen oak leaves and pine needles followed by a complete downspout pressure flush.</p>
+                <div class="price-container">
+                    <span class="regular-price">$120</span>
+                    <span class="promo-price">$60</span>
+                    <span class="offer-badge">Intro Offer</span>
+                </div>
+                <button class="btn-basket-toggle" onclick="toggleCartItem('gutters')">Add to Basket</button>
+            </div>
         </div>
     </section>
-
-           <!-- Split Screen Checkout System -->
+    <!-- Split Screen Checkout System -->
     <section id="checkout-section" class="checkout-section">
         <div class="checkout-container">
             
@@ -138,7 +176,7 @@
             <!-- Customer Information Form -->
             <div class="lead-form-box">
                 <h3>Contact & Property Information</h3>
-                <!-- Fixed endpoint target securely handling your POST method -->
+                <!-- Fixed form mechanism forcing secure submission methods -->
                 <form action="https://formspree.io" method="POST" id="checkout-form">
                     <input type="hidden" name="Selected Services" id="hidden-services-input">
                     <input type="hidden" name="Total Price" id="hidden-total-input">
@@ -232,15 +270,6 @@
                 submitBtn.setAttribute('disabled', 'true');
             }
         }
-
-        // Native enforcement rule to prevent incorrect browser link handling
-        document.getElementById('checkout-form').addEventListener('submit', function(e) {
-            const hiddenServices = document.getElementById('hidden-services-input').value;
-            if (!hiddenServices) {
-                e.preventDefault();
-                alert('Please select at least one service offer before checking out!');
-            }
-        });
     </script>
 </body>
 </html>
